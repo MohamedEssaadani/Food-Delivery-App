@@ -22,6 +22,11 @@ const foodSchema = mongoose.Schema(
       required: true,
       ref: "Category",
     },
+    restaurant: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "Restaurant",
+    },
     description: {
       type: String,
       required: true,
@@ -33,11 +38,6 @@ const foodSchema = mongoose.Schema(
     image: {
       type: String,
       required: true,
-    },
-    restaurant: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "Restaurant",
     },
     rating: {
       type: Number,

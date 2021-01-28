@@ -1,14 +1,15 @@
 import express from "express"
-import restaurants from "./data/restaurants.js"
 import dotenv from "dotenv"
+import connectDb from "./config/db.js"
+import restaurantRoutes from "./routes/restaurantRoutes"
 
 dotenv.config()
 
+connectDb()
+
 const app = express()
 
-app.get("/", (req, res) => {
-  res.send(restaurants)
-})
+app.use("/api/restaurants", restaurantRoutes)
 
 const PORT = process.env.PORT || 5000
 

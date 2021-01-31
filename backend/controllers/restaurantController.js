@@ -6,7 +6,6 @@ import Restaurant from "../models/restaurant.js"
 //@access Public
 const getRestaurants = asyncHandler(async (req, res) => {
   const restaurants = await Restaurant.find({})
-
   res.json(restaurants)
 })
 

@@ -1,7 +1,7 @@
 import express from "express"
 import dotenv from "dotenv"
 import connectDb from "./config/db.js"
-import restaurantRoutes from "./routes/restaurantRoutes"
+import restaurantRoutes from "./routes/restaurantRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 
 dotenv.config()

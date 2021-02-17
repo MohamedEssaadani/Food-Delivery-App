@@ -1,19 +1,24 @@
 import React from "react"
 import { Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 function Restaurant({ restaurant }) {
   return (
     <>
       <Card className="my-3 p-3 rounded">
-        <Card.Img
-          src={restaurant.picture}
-          height="140px"
-          variant="top"
-        ></Card.Img>
+        <Link to={`/restaurant/${restaurant._id}`}>
+          <Card.Img
+            src={restaurant.picture}
+            height="140px"
+            variant="top"
+          ></Card.Img>
+        </Link>
         <Card.Body>
-          <Card.Title as="div">
-            <strong>{restaurant.name}</strong>
-          </Card.Title>
+          <Link to={`/restaurant/${restaurant._id}`}>
+            <Card.Title as="div">
+              <strong>{restaurant.name}</strong>
+            </Card.Title>
+          </Link>
           <Card.Text as="div">{restaurant.address}</Card.Text>
         </Card.Body>
       </Card>

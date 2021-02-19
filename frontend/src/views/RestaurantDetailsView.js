@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap"
 import axios from "axios"
+import Rating from "../components/Rating"
 
 function RestaurantDetails({ match }) {
   const [restaurant, setRestaurant] = useState({})
@@ -31,7 +32,10 @@ function RestaurantDetails({ match }) {
               <h3>{restaurant.name}</h3>
             </ListGroup.Item>
             <ListGroup.Item>
-              <strong>Rating: </strong> {restaurant.rating}
+              <Rating
+                value={restaurant.rating}
+                text={`${restaurant.numReviews} reviews`}
+              ></Rating>
             </ListGroup.Item>
             <ListGroup.Item>
               <strong>description: </strong> {restaurant.description}

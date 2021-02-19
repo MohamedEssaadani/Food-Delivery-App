@@ -1,6 +1,7 @@
 import React from "react"
 import { Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import Rating from "../components/Rating"
 
 function Restaurant({ restaurant }) {
   return (
@@ -19,6 +20,7 @@ function Restaurant({ restaurant }) {
               <strong>{restaurant.name}</strong>
             </Card.Title>
           </Link>
+          <Rating value={restaurant.rating}></Rating>
           <Card.Text as="div">{restaurant.address}</Card.Text>
         </Card.Body>
       </Card>

@@ -4,14 +4,18 @@ import connectDb from "./config/db.js"
 import restaurantRoutes from "./routes/restaurantRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 
+//load .env file to process.env
 dotenv.config()
 
+//connect to mongodb
 connectDb()
 
 const app = express()
 
+//restaurants routes
 app.use("/api/restaurants", restaurantRoutes)
 
+//users routes
 app.use("/api/users", userRoutes)
 
 const PORT = process.env.PORT || 5000

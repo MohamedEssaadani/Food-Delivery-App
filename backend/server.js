@@ -12,6 +12,9 @@ connectDb()
 
 const app = express()
 
+//to parse json
+app.use(express.json())
+
 //restaurants routes
 app.use("/api/restaurants", restaurantRoutes)
 

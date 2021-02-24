@@ -4,6 +4,7 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import HomeView from "./views/HomeView"
 import RestaurantDetailsView from "./views/RestaurantDetailsView"
+import RestaurantFoodView from "./views/RestaurantFoodView"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Container>
           <Route path="/" exact component={HomeView} />
           <Route path="/restaurant/:id" component={RestaurantDetailsView} />
+          <Route path="/restaurant/:id/food" component={RestaurantFoodView} />
         </Container>
       </main>
       <Footer />

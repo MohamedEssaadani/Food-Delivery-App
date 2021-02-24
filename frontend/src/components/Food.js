@@ -1,0 +1,23 @@
+import React from "react"
+import { Card } from "react-bootstrap"
+import Rating from "./Rating.js"
+import { Link } from "react-router-dom"
+
+function Food({ food }) {
+  return (
+    <>
+      <Card className="my-3 p-3 rounded">
+        <Card.Img src={food.image} alt={food.name} variant="top"></Card.Img>
+        <Card.Body>
+          <Card.Title as="div">
+            <strong>{food.name}</strong>
+          </Card.Title>
+          <Rating value={food.rating} />
+          <Card.Text>${food.price}</Card.Text>
+        </Card.Body>
+      </Card>
+    </>
+  )
+}
+
+export default Food

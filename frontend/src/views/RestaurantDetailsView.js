@@ -55,9 +55,11 @@ function RestaurantDetails({ match }) {
                 <strong>Phone: </strong> {restaurant.phone}
               </ListGroup.Item>
               <ListGroup.Item>
-                <Button type="button" className="btn-block">
-                  See Meenu
-                </Button>
+                <Link to={`/restaraunts/${restaurant._id}/food`}>
+                  <Button type="button" className="btn-block">
+                    See Menu
+                  </Button>
+                </Link>
               </ListGroup.Item>
             </ListGroup>
           </Card>

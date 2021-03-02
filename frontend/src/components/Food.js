@@ -7,7 +7,13 @@ function Food({ food }) {
   return (
     <>
       <Card className="my-3 p-3 rounded">
-        <Card.Img src={food.image} alt={food.name} variant="top"></Card.Img>
+        <Card.Img
+          src={`/images/${food.image}`}
+          alt={food.name}
+          height="140px"
+          width="140px"
+          variant="top"
+        ></Card.Img>
         <Card.Body>
           <Card.Title as="div">
             <strong>{food.name}</strong>

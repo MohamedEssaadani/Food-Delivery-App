@@ -13,7 +13,11 @@ function App() {
       <main className="py-3">
         <Container>
           <Route path="/" exact component={HomeView} />
-          <Route path="/restaurant/:id" component={RestaurantDetailsView} />
+          <Route
+            path="/restaurant/:id"
+            exact
+            component={RestaurantDetailsView}
+          />
           <Route path="/restaurant/:id/food" component={RestaurantFoodView} />
         </Container>
       </main>

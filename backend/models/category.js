@@ -8,7 +8,6 @@ const categorySchema = mongoose.Schema(
     },
     parentCategory: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
       ref: "Category",
     },
   },

@@ -1,37 +1,33 @@
 const foodList = [
   {
-    name: "",
-    category: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "Category",
-    },
-    restaurant: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true,
-      ref: "Restaurant",
-    },
-    description: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    image: {
-      type: String,
-      required: true,
-    },
-    rating: {
-      type: Number,
-      default: 0,
-    },
-    numReviews: {
-      type: Number,
-      default: 0,
-    },
-    reviews: [reviewSchema],
+    name: "fried whole fish with tomatillo sauce",
+    restaurant: "60169f4148d7013be053654d",
+    description:
+      " Integer viverra lacus sit amet ex elementum, eget facilisis nulla sagittis. Nam commodo lacus sem. Vestibulum eleifend nunc sed molestie pharetra.",
+    price: 22,
+    image: "fried-whole-fish-with-tomatillo-sauce-recipe-BA-081717.jpg",
+    rating: 3,
+    numReviews: 22,
+  },
+  {
+    name: "Australis Barramundi Macadamia Crusted",
+    restaurant: "60169f4148d7013be053654d",
+    description:
+      " Integer viverra lacus sit amet ex elementum, eget facilisis nulla sagittis. Nam commodo lacus sem. Vestibulum eleifend nunc sed molestie pharetra.",
+    price: 22,
+    image: "Australis-Barramundi-Macadamia-Crusted.jpg",
+    rating: 4,
+    numReviews: 15,
+  },
+  {
+    name: "special",
+    restaurant: "60169f4148d7013be053654d",
+    description:
+      " Integer viverra lacus sit amet ex elementum, eget facilisis nulla sagittis. Nam commodo lacus sem. Vestibulum eleifend nunc sed molestie pharetra.",
+    price: 22,
+    image: "special.jpg",
+    rating: 5,
+    numReviews: 65,
   },
 ]
 

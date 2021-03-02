@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap"
+import { LinkContainer } from "react-router-bootstrap"
 import axios from "axios"
 import Rating from "../components/Rating"
 
@@ -15,7 +16,7 @@ function RestaurantDetails({ match }) {
     }
 
     fetchRestaurant()
-  })
+  }, [restaurant, match.params.id])
 
   return (
     <>
@@ -55,11 +56,11 @@ function RestaurantDetails({ match }) {
                 <strong>Phone: </strong> {restaurant.phone}
               </ListGroup.Item>
               <ListGroup.Item>
-                <Link to={`/restaraunts/${restaurant._id}/food`}>
+                <LinkContainer to={`/restaurant/${restaurant._id}/food`}>
                   <Button type="button" className="btn-block">
-                    See Menu
+                    See Meenu
                   </Button>
-                </Link>
+                </LinkContainer>
               </ListGroup.Item>
             </ListGroup>
           </Card>

@@ -4,24 +4,24 @@ import axios from "axios"
 import Food from "../components/Food.js"
 
 function RestaurantFoodView({ match }) {
-  const [food, setFood] = useState([])
+  const [foodList, setFoodList] = useState([])
 
   useEffect(() => {
     const getFoodList = async () => {
       const id = match.params.id
       const { data } = await axios.get(`/api/restaurants/${id}/food`)
-      setFood(data)
+      setFoodList(data)
     }
 
     getFoodList()
-  }, [food, match.params.id])
+  }, [foodList, match.params.id])
 
   return (
     <>
       <Row>
-        {food.map((f) => (
-          <Col key={f._id} sm={12} md={3} lg={6} xl={12}>
-            <Food food={f} />
+        {foodList.map((food) => (
+          <Col key={food._id} sm={12} md={6} lg={4} xl={3}>
+            <Food food={food} />
           </Col>
         ))}
       </Row>

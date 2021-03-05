@@ -6,9 +6,12 @@ import {
   restaurantDetailsReducer,
 } from "./reducers/restaurantReducers"
 
+import { restaurantFoodListReducer } from "./reducers/foodReducers"
+
 const reducer = combineReducers({
   restaurantList: restaurantListReducer,
   restaurantDetails: restaurantDetailsReducer,
+  restaurantFood: restaurantFoodListReducer,
 })
 
 const initialState = {}

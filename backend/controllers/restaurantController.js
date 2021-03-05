@@ -19,4 +19,14 @@ const getRestaurantById = asyncHandler(async (req, res) => {
   res.json(restaurant)
 })
 
-export { getRestaurants, getRestaurantById }
+//@desc Fetch cities
+//@route /api/restaurants/cities
+//@access Public
+const getCities = asyncHandler(async (req, res) => {
+  const cities = await Restaurant.find({})
+    .distinct("ville")
+    .select({ ville: 1 })
+  console.log(cities)
+  res.json(cities)
+})
+export { getRestaurants, getRestaurantById, getCities }

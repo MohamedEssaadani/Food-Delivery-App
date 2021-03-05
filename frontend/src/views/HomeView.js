@@ -17,10 +17,12 @@ function HomeView() {
 
   return (
     <>
+      <h3>Casablanca Restaurants</h3>
+
       {loading ? (
         <Loader />
       ) : error ? (
-        <Message variants="danger" text={error} />
+        <Message variant="danger" text={error} />
       ) : (
         <Row>
           {restaurants.map((restaurant) => (

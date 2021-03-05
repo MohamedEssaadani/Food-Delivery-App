@@ -13,4 +13,20 @@ const restaurantListReducer = (state = { restaurants: [] }, action) => {
   }
 }
 
-export { restaurantListReducer }
+const restaurantDetailsReducer = (state = { restaurant: {} }, action) => {
+  switch (action.type) {
+    case "RESTAURANT_DETAILS_REQUEST":
+      return { loading: true, restaurant: {} }
+
+    case "RESTAURANT_DETAILS_SUCCESS":
+      return { loading: false, restaurant: action.payload }
+
+    case "RESTAURANT_DETAILS_FAIL":
+      return { loading: false, error: action.payload }
+
+    default:
+      return state
+  }
+}
+
+export { restaurantListReducer, restaurantDetailsReducer }

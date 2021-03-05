@@ -1,16 +1,16 @@
 import React from "react"
 import { Alert } from "react-bootstrap"
 
-function Message({ color, text }) {
+function Message({ variant, text }) {
   return (
-    <Alert variant={color}>
+    <Alert variant={variant}>
       <p>{text}</p>
     </Alert>
   )
 }
 
 Message.defaultProps = {
-  color: "success",
+  variant: "success",
   text: "Everything is good :)",
 }
 

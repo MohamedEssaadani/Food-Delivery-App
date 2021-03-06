@@ -30,7 +30,7 @@ function RestaurantDetails({ match }) {
           </Link>
           <Row>
             <Col md={6}>
-              <Image src={restaurant.picture} alt={restaurant.name} fluid />
+              <Image src={restaurant.picture} alt={restaurant.name} rounded />
             </Col>
             <Col md={3}>
               <ListGroup variant="flush">
@@ -40,11 +40,11 @@ function RestaurantDetails({ match }) {
                 <ListGroup.Item>
                   <Rating
                     value={restaurant.rating}
-                    text={`${restaurant.numReviews} reviews`}
+                    text={`${restaurant.numReviews} avis`}
                   ></Rating>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <strong>description: </strong> {restaurant.description}
+                  <strong>Description: </strong> {restaurant.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -55,15 +55,15 @@ function RestaurantDetails({ match }) {
                     <strong>Ville: </strong> {restaurant.ville}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <strong>Address: </strong> {restaurant.address}
+                    <strong>Adresse: </strong> {restaurant.address}
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <strong>Phone: </strong> {restaurant.phone}
+                    <strong>Téléphone: </strong> {restaurant.phone}
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <LinkContainer to={`/restaurant/${restaurant._id}/food`}>
                       <Button type="button" className="btn-block">
-                        See Meenu
+                        consulter le menu
                       </Button>
                     </LinkContainer>
                   </ListGroup.Item>

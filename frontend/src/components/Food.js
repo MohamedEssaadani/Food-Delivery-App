@@ -18,8 +18,9 @@ function Food({ food }) {
             <strong>{food.name}</strong>
           </Card.Title>
           <Rating value={food.rating} />
-          <Card.Text>Prix: ${food.price}</Card.Text>
-          <Card.Text>Restaurant: {food.restaurant.name}</Card.Text>
+          <Card.Text>
+            <span> Prix: ${food.price}</span>
+          </Card.Text>
         </Card.Body>
       </Card>
     </>

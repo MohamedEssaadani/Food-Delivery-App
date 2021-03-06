@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { listRestaurant } from "../actions/restaurantActions"
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap"
+import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { LinkContainer } from "react-router-bootstrap"
 
@@ -26,7 +26,9 @@ function Header() {
       <Navbar bg="primary" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <Link to="/">
-            <Navbar.Brand>Food delivery</Navbar.Brand>
+            <Navbar.Brand>
+              <Image src="/images/logo.png" height="80px" width="80px" />
+            </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

@@ -19,9 +19,9 @@ function HomeView() {
     <>
       <Jumbotron fluid>
         <Container>
-          {/* <Row>
+          <Row style={{ display: "flex", justifyContent: "center" }}>
             <Col sm={12} md={6} lg={4} xl={3}>
-              <h3>Effectuer un recherche: </h3>
+              <h3 style={{ color: "rgb(94, 52, 116)" }}>Rechercher :</h3>
             </Col>
             <Col sm={12} md={6} lg={4} xl={3}>
               <FormControl
@@ -30,7 +30,7 @@ function HomeView() {
                 className="mr-sm-2"
               />
             </Col>
-          </Row> */}
+          </Row>
         </Container>
       </Jumbotron>
 

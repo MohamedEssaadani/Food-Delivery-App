@@ -4968,7 +4968,7 @@ a.badge-dark:focus {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #eee;
+  background-color: #f8e825;
   border-radius: 0.3rem;
 }
 @media (min-width: 576px) {
@@ -6284,7 +6284,7 @@ a.close.disabled {
   vertical-align: text-top !important;
 }
 .bg-primary {
-  background-color: #2196f3 !important;
+  background-color: rgb(94, 52, 116) !important;
 }
 a.bg-primary:focus,
 a.bg-primary:hover,

@@ -2461,14 +2461,14 @@ fieldset:disabled a.btn {
 .btn-primary:not(:disabled):not(.disabled):active,
 .show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #0c7cd5;
+  background-color: rgb(94, 52, 116);
   background-image: none;
-  border-color: #0b75c9;
+  border-color: rgb(94, 52, 116);
 }
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(66, 166, 245, 0.5);
+  box-shadow: 0 0 0 0.2rem rgb(94, 52, 116);
 }
 .btn-secondary {
   color: #212121;
@@ -3229,13 +3229,14 @@ input[type="submit"].btn-block {
 .dropdown-item:hover {
   color: #141414;
   text-decoration: none;
-  background: #eee linear-gradient(180deg, #f1f1f1, #eee) repeat-x;
+  background: #eee rgb(94, 52, 116) repeat-x;
 }
 .dropdown-item.active,
 .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background: #2196f3 linear-gradient(180deg, #42a6f5, #2196f3) repeat-x;
+  background: rgb(94, 52, 116)
+    linear-gradient(180deg, rgb(94, 52, 116), rgb(94, 52, 116)) repeat-x;
 }
 .dropdown-item.disabled,
 .dropdown-item:disabled {

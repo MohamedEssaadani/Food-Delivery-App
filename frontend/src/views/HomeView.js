@@ -26,7 +26,7 @@ function HomeView() {
             <Col sm={12} md={6} lg={4} xl={3}>
               <FormControl
                 type="text"
-                placeholder="rechercher"
+                placeholder="tapez quelque chose.."
                 className="mr-sm-2"
               />
             </Col>

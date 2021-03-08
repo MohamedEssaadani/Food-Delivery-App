@@ -1,5 +1,6 @@
 import express from "express"
 import dotenv from "dotenv"
+import { errorHandler, notFound } from "./middlewares/errorMiddleware.js"
 import connectDb from "./config/db.js"
 import restaurantRoutes from "./routes/restaurantRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
@@ -20,6 +21,12 @@ app.use("/api/restaurants", restaurantRoutes)
 
 //users routes
 app.use("/api/users", userRoutes)
+
+//404 Error, if the url not found
+app.use(notFound)
+
+//Error Handling
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 

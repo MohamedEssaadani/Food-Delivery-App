@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs"
 import generateToken from "../utils/generateToken.js"
 
 //@desc Authentification & Generate Token
-//@route /api/users/login
+//@route POST /api/users/login
 //@access Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
@@ -25,8 +25,8 @@ const authUser = asyncHandler(async (req, res) => {
   }
 })
 
-//@desc Get User Profile
-//@route /api/users/profile
+//@desc GET User Profile
+//@route GET /api/users/profile
 //@access Private
 const getProfile = asyncHandler(async (req, res) => {
   if (req.user) {
@@ -42,4 +42,43 @@ const getProfile = asyncHandler(async (req, res) => {
   }
 })
 
-export { authUser, getProfile }
+//@desc Create new user
+//@route POST /api/users
+//@access public
+const createUser = asyncHandler(async (req, res) => {
+  //get values from request body
+  const { name, email, password, role } = req.body
+
+  //check if user exist
+  const isExist = await User.findOne({ email })
+
+  //if exist then throw error
+  if (isExist) {
+    res.status(400)
+    throw new Error("User already exist!")
+  }
+
+  //create the user and get his informations
+  const user = await User.create({
+    name,
+    email,
+    password,
+    role,
+  })
+
+  //if user created return his infos with ok status
+  if (user) {
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      token: generateToken(user._id),
+    })
+  } else {
+    res.status(400)
+    throw new Error("Invalid informations! ")
+  }
+})
+
+export { authUser, getProfile, createUser }

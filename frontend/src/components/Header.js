@@ -16,7 +16,7 @@ function Header() {
     dispatch(listRestaurant())
   }, [dispatch])
 
-  if (restaurants.length > 0) {
+  if (restaurants) {
     cities = restaurants.map((restaurant) => restaurant.ville)
     distinctCities = Array.from(new Set(cities))
   }
@@ -41,6 +41,18 @@ function Header() {
                   return <NavDropdown.Item>{city}</NavDropdown.Item>
                 })}
               </NavDropdown>
+            </Nav>
+            <Nav className="ml-auto">
+              <LinkContainer to="/cart">
+                <Nav.Link>
+                  <i className="fas fa-shopping-cart"></i> Cart
+                </Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/login">
+                <Nav.Link>
+                  <i className="fas fa-user"></i> Sign In
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -30,7 +30,12 @@ function RestaurantDetails({ match }) {
           </Link>
           <Row>
             <Col md={6}>
-              <Image src={restaurant.picture} alt={restaurant.name} rounded />
+              <Image
+                src={restaurant.picture}
+                alt={restaurant.name}
+                fluid
+                rounded
+              />
             </Col>
             <Col md={3}>
               <ListGroup variant="flush">

@@ -5,10 +5,11 @@ import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { LinkContainer } from "react-router-bootstrap"
 
-function Header() {
+function Header({ history }) {
   const dispatch = useDispatch()
   const restaurantList = useSelector((state) => state.restaurantList)
   const { restaurants } = restaurantList
+  const { userInfo } = useSelector((state) => state.userLogin)
   var cities = []
   var distinctCities = []
 
@@ -19,6 +20,11 @@ function Header() {
   if (restaurants) {
     cities = restaurants.map((restaurant) => restaurant.ville)
     distinctCities = Array.from(new Set(cities))
+  }
+
+  const logout = () => {
+    localStorage.clear()
+    window.location.href = "/"
   }
 
   return (
@@ -48,11 +54,17 @@ function Header() {
                   <i className="fas fa-shopping-cart"></i> Cart
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/login">
-                <Nav.Link>
-                  <i className="fas fa-user"></i> Sign In
+              {userInfo ? (
+                <Nav.Link onClick={logout}>
+                  <i className="fas fa-sign-out-alt"></i> Logout
                 </Nav.Link>
-              </LinkContainer>
+              ) : (
+                <LinkContainer to="/login">
+                  <Nav.Link>
+                    <i className="fas fa-user"></i> Sign In
+                  </Nav.Link>
+                </LinkContainer>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

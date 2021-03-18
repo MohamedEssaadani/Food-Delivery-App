@@ -1,17 +1,23 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { listRestaurant } from "../actions/restaurantActions"
 import { Navbar, Container, Nav, NavDropdown, Image } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { LinkContainer } from "react-router-bootstrap"
+import { listRestaurant } from "../actions/restaurantActions"
+import { logout } from "../actions/userActions"
 
 function Header({ history }) {
   const dispatch = useDispatch()
+
+  //for drop down cities
   const restaurantList = useSelector((state) => state.restaurantList)
   const { restaurants } = restaurantList
-  const { userInfo } = useSelector((state) => state.userLogin)
   var cities = []
   var distinctCities = []
+
+  //for sign in / logout & show user name at header
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   useEffect(() => {
     dispatch(listRestaurant())
@@ -22,9 +28,8 @@ function Header({ history }) {
     distinctCities = Array.from(new Set(cities))
   }
 
-  const logout = () => {
-    localStorage.clear()
-    window.location.href = "/"
+  const logoutHandler = () => {
+    dispatch(logout())
   }
 
   return (
@@ -59,20 +64,21 @@ function Header({ history }) {
                   <NavDropdown
                     title={
                       <>
-                        <i className="fas fa-user"> </i>{" "}
-                        {JSON.parse(userInfo).name}
+                        <i className="fas fa-user"> </i> {userInfo.name}
                       </>
                     }
+                    id="username"
                   >
-                    <NavDropdown.Item>
-                      <i className="fas fa-user" /> Profile
-                    </NavDropdown.Item>
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>
+                        <i className="fas fa-user" /> Profile
+                      </NavDropdown.Item>
+                    </LinkContainer>
 
-                    <NavDropdown.Item onClick={logout}>
+                    <NavDropdown.Item onClick={logoutHandler}>
                       <i className="fas fa-sign-out-alt"></i> Logout
                     </NavDropdown.Item>
                   </NavDropdown>
-                  {/* <Nav.Link></Nav.Link> */}
                 </>
               ) : (
                 <LinkContainer to="/login">

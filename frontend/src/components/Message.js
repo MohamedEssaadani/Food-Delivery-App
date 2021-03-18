@@ -11,7 +11,7 @@ function Message({ variant, text }) {
 
 Message.defaultProps = {
   variant: "success",
-  text: "Everything is good :)",
+  //text: "Everything is good :)",
 }
 
 export default Message

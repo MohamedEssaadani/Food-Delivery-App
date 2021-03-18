@@ -42,7 +42,7 @@ function Header({ history }) {
               <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <NavDropdown title="Villes" id="basic-nav-dropdown">
+              <NavDropdown title="Villes" id="villes">
                 {distinctCities.map((city) => {
                   return <NavDropdown.Item>{city}</NavDropdown.Item>
                 })}
@@ -55,9 +55,25 @@ function Header({ history }) {
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
-                <Nav.Link onClick={logout}>
-                  <i className="fas fa-sign-out-alt"></i> Logout
-                </Nav.Link>
+                <>
+                  <NavDropdown
+                    title={
+                      <>
+                        <i className="fas fa-user"> </i>{" "}
+                        {JSON.parse(userInfo).name}
+                      </>
+                    }
+                  >
+                    <NavDropdown.Item>
+                      <i className="fas fa-user" /> Profile
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item onClick={logout}>
+                      <i className="fas fa-sign-out-alt"></i> Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  {/* <Nav.Link></Nav.Link> */}
+                </>
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>

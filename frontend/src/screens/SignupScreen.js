@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Container, Row, Col, Card, Form, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
-import { login } from "../actions/userActions.js"
+import { signup } from "../actions/userActions"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
 
-function LoginScreen({ history, location }) {
+function RegisterScreen({ history, location }) {
   const dispatch = useDispatch()
+
+  const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [confirmPassword, setConfirmPassword] = useState("")
+  const [passwordsNotMatch, setPasswordsNotMatch] = useState(null)
 
-  const { loading, error, userInfo } = useSelector((state) => state.userLogin)
+  const { loading, error, userInfo } = useSelector((state) => state.useRegister)
 
   const redirect = location.search ? location.search.split("=")[1] : "/"
 
@@ -23,20 +27,38 @@ function LoginScreen({ history, location }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch(login(email, password))
+    if (password !== confirmPassword) {
+      setPasswordsNotMatch("Passwords Not Match!")
+    } else {
+      let role = "client"
+      dispatch(signup(name, email, password, role))
+    }
   }
+
   return (
     <Container>
       <Row className="justify-content-md-center">
         <Col xs={12} md={6}>
           <Card className="p-3">
             {error && <Message variant="danger" text={error} />}
+            {passwordsNotMatch && (
+              <Message variant="danger" text={passwordsNotMatch} />
+            )}
             {loading && <Loader />}
             <Card.Title>
-              <h3>Sign in</h3>
+              <h3>Sign Up</h3>
             </Card.Title>
             <Card.Body>
               <Form onSubmit={handleSubmit}>
+                <Form.Group controlId="name">
+                  <Form.Label>Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
                 <Form.Group controlId="email">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
@@ -55,24 +77,25 @@ function LoginScreen({ history, location }) {
                     onChange={(e) => setPassword(e.target.value)}
                   ></Form.Control>
                 </Form.Group>
+                <Form.Group controlId="confirmPassword">
+                  <Form.Label>Confirm Password</Form.Label>
+                  <Form.Control
+                    type="password"
+                    placeholder="Confirm your password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  ></Form.Control>
+                </Form.Group>
                 <Button type="submit" variant="primary" block>
-                  Sign In
+                  Sign Up
                 </Button>
               </Form>
             </Card.Body>
             <Card.Footer>
-              <Link
-                to={
-                  redirect
-                    ? `/forgot-password?redirect=${redirect}`
-                    : "/forgot-password"
-                }
-              >
-                Forgot Password?.
-              </Link>
-              <Link to={redirect ? `/signup?redirect=${redirect}` : "/signup"}>
+              You already have an account?.
+              <Link to={redirect ? `/login?redirect=${redirect}` : "/sigin"}>
                 {" "}
-                Sign Up
+                Sign In
               </Link>
             </Card.Footer>
           </Card>
@@ -82,4 +105,4 @@ function LoginScreen({ history, location }) {
   )
 }
 
-export default LoginScreen
+export default RegisterScreen

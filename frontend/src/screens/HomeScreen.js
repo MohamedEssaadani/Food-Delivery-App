@@ -1,17 +1,11 @@
 import React, { useEffect } from "react"
-import {
-  Row,
-  Col,
-  Jumbotron,
-  Container,
-  FormControl,
-  InputGroup,
-} from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { listRestaurant } from "../actions/restaurantActions"
 import Restaurant from "../components/Restaurant"
 import Loader from "../components/Loader"
 import Message from "../components/Message"
+import Search from "../components/Search"
 
 function HomeView() {
   const dispatch = useDispatch()
@@ -22,32 +16,13 @@ function HomeView() {
     dispatch(listRestaurant())
   }, [dispatch])
 
+  const handleSearch = (e) => {
+    console.log(e.target.value)
+  }
+
   return (
     <>
-      <Jumbotron fluid>
-        <Container>
-          <Row style={{ display: "flex", justifyContent: "center" }}>
-            {/* <Col sm={12} md={6} lg={4} xl={3}>
-              <h3 style={{ color: "rgb(94, 52, 116)" }}>Rechercher :</h3>
-            </Col> */}
-            <Col sm={12} md={6} lg={4} xl={3}>
-              <InputGroup>
-                <InputGroup.Prepend>
-                  <InputGroup.Text id="basic-addon1">
-                    <i className="fas fa-search"></i>
-                  </InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl
-                  type="text"
-                  placeholder="Rechercher.."
-                  className="mr-sm-2"
-                />
-              </InputGroup>
-            </Col>
-          </Row>
-        </Container>
-      </Jumbotron>
-
+      <Search handleSearch={handleSearch} />
       <h3>Casablanca Restaurants</h3>
 
       {loading ? (

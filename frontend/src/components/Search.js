@@ -25,7 +25,7 @@ function Search({ handleSearch }) {
               </InputGroup.Prepend>
               <FormControl
                 type="text"
-                placeholder="Tapez un nom.."
+                placeholder="Tapez un nom, ville.."
                 onChange={handleSearch}
                 className="mr-sm-2"
               />

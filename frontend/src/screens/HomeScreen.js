@@ -10,19 +10,21 @@ import Search from "../components/Search"
 function HomeView() {
   const dispatch = useDispatch()
   const restaurantList = useSelector((state) => state.restaurantList)
-  const { loading, error, restaurants } = restaurantList
+  var { loading, error, restaurants } = restaurantList
 
   useEffect(() => {
     dispatch(listRestaurant())
   }, [dispatch])
 
   const handleSearch = (e) => {
-    console.log(e.target.value)
+    const search = e.target.value
+    dispatch(listRestaurant(search))
   }
 
   return (
     <>
       <Search handleSearch={handleSearch} />
+
       <h3>Casablanca Restaurants</h3>
 
       {loading ? (

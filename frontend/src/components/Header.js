@@ -49,7 +49,7 @@ function Header({ history }) {
               </LinkContainer>
               <NavDropdown title="Villes" id="villes">
                 {distinctCities.map((city) => {
-                  return <NavDropdown.Item>{city}</NavDropdown.Item>
+                  return <NavDropdown.Item key={city}>{city}</NavDropdown.Item>
                 })}
               </NavDropdown>
             </Nav>

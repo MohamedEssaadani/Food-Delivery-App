@@ -6,6 +6,17 @@ const restaurantListReducer = (state = { restaurants: [] }, action) => {
     case "RESTAURANT_LIST_SUCCESS":
       return { loading: false, restaurants: action.payload }
 
+    case "RESTAURANT_LIST_FILTER":
+      return {
+        loading: false,
+        restaurants: action.payload.filter(
+          (item) =>
+            item.name.includes(action.filter) ||
+            item.description.includes(action.filter) ||
+            item.address.includes(action.filter)
+        ),
+      }
+
     case "RESTAURANT_LIST_FAIL":
       return { loading: false, error: action.payload }
     default:

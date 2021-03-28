@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const listRestaurant = () => async (dispatch) => {
+export const listRestaurant = (filter = null) => async (dispatch) => {
   try {
     dispatch({
       type: "RESTAURANT_LIST_REQUEST",
@@ -8,10 +8,18 @@ export const listRestaurant = () => async (dispatch) => {
 
     const { data } = await axios.get("/api/restaurants")
 
-    dispatch({
-      type: "RESTAURANT_LIST_SUCCESS",
-      payload: data,
-    })
+    if (filter === null) {
+      dispatch({
+        type: "RESTAURANT_LIST_SUCCESS",
+        payload: data,
+      })
+    } else {
+      dispatch({
+        type: "RESTAURANT_LIST_FILTER",
+        payload: data,
+        filter: filter,
+      })
+    }
   } catch (error) {
     dispatch({
       type: "RESTAURANT_LIST_FAIL",

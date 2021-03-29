@@ -1,7 +1,8 @@
 import express from "express"
 import {
   authUser,
-  getProfile,
+  getUserProfile,
+  updateUserProfile,
   createUser,
 } from "../controllers/userController.js"
 import { protectRoutes } from "../middlewares/authMiddleware.js"
@@ -15,6 +16,9 @@ router.route("/").post(createUser)
 router.post("/login", authUser)
 
 //route for get user profile
-router.route("/profile").get(protectRoutes, getProfile)
+router
+  .route("/profile")
+  .get(protectRoutes, getUserProfile)
+  .put(protectRoutes, updateUserProfile)
 
 export default router

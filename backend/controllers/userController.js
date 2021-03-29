@@ -28,13 +28,41 @@ const authUser = asyncHandler(async (req, res) => {
 //@desc GET User Profile
 //@route GET /api/users/profile
 //@access Private
-const getProfile = asyncHandler(async (req, res) => {
+const getUserProfile = asyncHandler(async (req, res) => {
   if (req.user) {
     res.json({
       id: req.user.userId,
       name: req.user.name,
       email: req.user.email,
       role: req.user.role,
+    })
+  } else {
+    res.status(404)
+    throw new Error("No User Found!")
+  }
+})
+
+//@desc UPDATE User Profile
+//@route PUT /api/users/profile
+//@access Private
+const updateUserProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id)
+
+  if (req.user) {
+    user.name = req.body.name || req.user.name
+    user.email = req.body.name || req.user.email
+    if (req.body.password) {
+      user.password = req.body.password
+    }
+
+    const updatedUser = await user.save()
+
+    res.json({
+      id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+      token: generateToken(updatedUser._id),
     })
   } else {
     res.status(404)
@@ -81,4 +109,4 @@ const createUser = asyncHandler(async (req, res) => {
   }
 })
 
-export { authUser, getProfile, createUser }
+export { authUser, getUserProfile, createUser, updateUserProfile }

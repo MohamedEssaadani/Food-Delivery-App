@@ -12,6 +12,7 @@ import {
   userLoginReducer,
   userSignUpReducer,
   userDetailsReducer,
+  userUpdateProfileReducer,
 } from "./reducers/userReducers"
 
 const reducer = combineReducers({
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   userLogin: userLoginReducer,
   useRegister: userSignUpReducer,
   userDetails: userDetailsReducer,
+  userUpdateProfile: userUpdateProfileReducer,
 })
 
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")

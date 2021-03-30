@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Row, Col, Card, Form, Button } from "react-bootstrap"
-import { getUserDetails } from "../actions/userActions"
+import { getUserDetails, updateUserProfile } from "../actions/userActions"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
 
@@ -15,6 +15,8 @@ function RegisterScreen({ history, location }) {
   const dispatch = useDispatch()
 
   const { loading, error, user } = useSelector((state) => state.userDetails)
+
+  const { success } = useSelector((state) => state.userUpdateProfile)
 
   //to check if the user is logged in or not
   const { userInfo } = useSelector((state) => state.userLogin)
@@ -37,9 +39,16 @@ function RegisterScreen({ history, location }) {
     if (password !== confirmPassword) {
       setPasswordsNotMatch("Passwords Not Match!")
     } else {
-      // let role = "client"
-      // dispatch(signup(name, email, password, role))
-      //dispatch update profile
+      let role = "client"
+      dispatch(
+        updateUserProfile({
+          id: user._id,
+          name,
+          email,
+          password,
+          role,
+        })
+      )
     }
   }
 
@@ -48,6 +57,7 @@ function RegisterScreen({ history, location }) {
       <Col md={4}>
         <Card className="p-3">
           {error && <Message variant="danger" text={error} />}
+          {success && <Message variant="success" text="Updated with success" />}
           {passwordsNotMatch && (
             <Message variant="danger" text={passwordsNotMatch} />
           )}

@@ -15,7 +15,6 @@ function App() {
       <Header />
       <main className="py-3">
         <Container>
-          <Route path="/" exact component={HomeScreen} />
           <Route path="/login" exact component={LoginScreen} />
           <Route path="/signup" exact component={SignupScreen} />
           <Route path="/profile" exact component={ProfileScreen} />
@@ -25,6 +24,7 @@ function App() {
             component={RestaurantDetailsScreen}
           />
           <Route path="/restaurant/:id/food" component={RestaurantFoodScreen} />
+          <Route path="/" exact component={HomeScreen} />
         </Container>
       </main>
       <Footer />

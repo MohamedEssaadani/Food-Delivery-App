@@ -14,8 +14,7 @@ function RegisterScreen({ history, location }) {
 
   const dispatch = useDispatch()
 
-  const userDetails = useSelector((state) => state.userDetails)
-  const { loading, error, user } = userDetails
+  const { loading, error, user } = useSelector((state) => state.userDetails)
 
   //to check if the user is logged in or not
   const { userInfo } = useSelector((state) => state.userLogin)
@@ -24,10 +23,9 @@ function RegisterScreen({ history, location }) {
     if (!userInfo) {
       history.push("/login")
     } else {
-      if (!user) {
+      if (!user.name) {
         dispatch(getUserDetails("profile"))
       } else {
-        console.log(user)
         setName(user.name)
         setEmail(user.email)
       }

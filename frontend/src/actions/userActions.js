@@ -105,7 +105,6 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     dispatch({
       type: USER_DETAILS_REQUEST,
     })
-
     const config = {
       headers: {
         "Content-Type": "application/json",

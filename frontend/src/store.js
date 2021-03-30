@@ -8,7 +8,11 @@ import {
 
 import { restaurantFoodListReducer } from "./reducers/foodReducers"
 
-import { userLoginReducer, userSignUpReducer } from "./reducers/userReducers"
+import {
+  userLoginReducer,
+  userSignUpReducer,
+  userDetailsReducer,
+} from "./reducers/userReducers"
 
 const reducer = combineReducers({
   restaurantList: restaurantListReducer,
@@ -16,6 +20,7 @@ const reducer = combineReducers({
   restaurantFood: restaurantFoodListReducer,
   userLogin: userLoginReducer,
   useRegister: userSignUpReducer,
+  userDetails: userDetailsReducer,
 })
 
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")

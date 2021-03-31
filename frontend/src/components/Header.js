@@ -47,7 +47,7 @@ function Header({ history }) {
               <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <NavDropdown title="Villes" id="villes">
+              <NavDropdown title="Cities" id="cities">
                 {distinctCities.map((city) => {
                   return <NavDropdown.Item key={city}>{city}</NavDropdown.Item>
                 })}

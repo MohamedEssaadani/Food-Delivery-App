@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { Row, Col, Image, ListGroup, Card, Button, Form } from "react-bootstrap"
-import { LinkContainer } from "react-router-bootstrap"
 import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { foodDetails } from "../actions/foodActions"
@@ -95,7 +94,7 @@ function FoodDetailsScreen({ match, history }) {
                       className="btn-block"
                       onClick={addToCartHandler}
                     >
-                      Ajouter au panier
+                      Add To Cart
                     </Button>
                   </ListGroup.Item>
                 </ListGroup>

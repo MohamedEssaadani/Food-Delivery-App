@@ -68,7 +68,7 @@ function RestaurantDetails({ match }) {
                   <ListGroup.Item>
                     <LinkContainer to={`/restaurant/${restaurant._id}/food`}>
                       <Button type="button" className="btn-block">
-                        consulter le menu
+                        See Menu
                       </Button>
                     </LinkContainer>
                   </ListGroup.Item>

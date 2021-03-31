@@ -6,7 +6,10 @@ import {
   restaurantDetailsReducer,
 } from "./reducers/restaurantReducers"
 
-import { restaurantFoodListReducer } from "./reducers/foodReducers"
+import {
+  restaurantFoodListReducer,
+  foodDetailsReducer,
+} from "./reducers/foodReducers"
 
 import {
   userLoginReducer,
@@ -19,6 +22,7 @@ const reducer = combineReducers({
   restaurantList: restaurantListReducer,
   restaurantDetails: restaurantDetailsReducer,
   restaurantFood: restaurantFoodListReducer,
+  foodDetails: foodDetailsReducer,
   userLogin: userLoginReducer,
   useRegister: userSignUpReducer,
   userDetails: userDetailsReducer,

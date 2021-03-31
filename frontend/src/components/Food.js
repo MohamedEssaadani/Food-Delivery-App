@@ -11,7 +11,7 @@ function Food({ food }) {
   return (
     <>
       <Card className="my-3 p-3 rounded">
-        <Link to="/">
+        <Link to={`/foods/${food._id}`}>
           <Card.Img
             src={`/images/${food.image}`}
             alt={food.name}
@@ -21,7 +21,7 @@ function Food({ food }) {
           ></Card.Img>
         </Link>
         <Card.Body>
-          <Link to="/">
+          <Link to={`/foods/${food._id}`}>
             <Card.Title as="div">
               <strong>{food.name}</strong>
             </Card.Title>

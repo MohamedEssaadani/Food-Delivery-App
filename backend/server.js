@@ -4,6 +4,7 @@ import { errorHandler, notFound } from "./middlewares/errorMiddleware.js"
 import connectDb from "./config/db.js"
 import restaurantRoutes from "./routes/restaurantRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+import foodRoutes from "./routes/foodRoutes.js"
 
 //load .env file to process.env
 dotenv.config()
@@ -18,6 +19,9 @@ app.use(express.json())
 
 //restaurants routes
 app.use("/api/restaurants", restaurantRoutes)
+
+//food routes
+app.use("/api/foods", foodRoutes)
 
 //users routes
 app.use("/api/users", userRoutes)

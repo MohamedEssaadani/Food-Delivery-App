@@ -8,6 +8,7 @@ import RestaurantFoodScreen from "./screens/RestaurantFoodScreen"
 import LoginScreen from "./screens/LoginScreen"
 import SignupScreen from "./screens/SignupScreen"
 import ProfileScreen from "./screens/ProfileScreen"
+import FoodDetailsScreen from "./screens/FoodDetailsScreen"
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             component={RestaurantDetailsScreen}
           />
           <Route path="/restaurant/:id/food" component={RestaurantFoodScreen} />
+          <Route path="/foods/:id" component={FoodDetailsScreen} />
           <Route path="/" exact component={HomeScreen} />
         </Container>
       </main>

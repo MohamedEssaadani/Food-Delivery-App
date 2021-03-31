@@ -15,6 +15,6 @@ router.get("/cities", getCities)
 
 router.get("/:id", getRestaurantById)
 
-router.get("/:id/food", getFoodByRestaurant)
+router.get("/:id/foods", getFoodByRestaurant)
 
 export default router

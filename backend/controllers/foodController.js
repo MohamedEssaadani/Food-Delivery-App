@@ -25,8 +25,8 @@ const getFoodList = asyncHandler(async (req, res) => {
 //@route /api/foods/:id
 //@access PUBLIC
 const getFoodById = asyncHandler(async (req, res) => {
-  const food = await Food.findById(req.params.id)
-
+  const food = await Food.findById(req.params.id).populate("restaurant")
+  // .populate("category")
   res.json(food)
 })
 

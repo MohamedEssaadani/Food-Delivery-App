@@ -3,8 +3,7 @@ import Order from "../models/order.js"
 
 const getUserOrders = asyncHandler(async (req, res) => {
   if (req.user) {
-    const userId = req.user.userId
-    const orders = Order.find({ user: userId })
+    const orders = await Order.find({ user: req.user.userId })
 
     if (orders) {
       res.json(orders)

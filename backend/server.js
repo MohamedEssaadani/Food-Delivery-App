@@ -5,7 +5,7 @@ import connectDb from "./config/db.js"
 import restaurantRoutes from "./routes/restaurantRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import foodRoutes from "./routes/foodRoutes.js"
-
+import orderRoutes from "./routes/orderRoutes.js"
 //load .env file to process.env
 dotenv.config()
 
@@ -25,6 +25,9 @@ app.use("/api/foods", foodRoutes)
 
 //users routes
 app.use("/api/users", userRoutes)
+
+//orders routes
+app.use("/api/orders", orderRoutes)
 
 //404 Error, if the url not found
 app.use(notFound)

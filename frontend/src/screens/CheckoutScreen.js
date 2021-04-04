@@ -1,7 +1,7 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { Link } from "react-router-dom"
 import { Col, Row, Form, Card, Button, Image, ListGroup } from "react-bootstrap"
+import { LinkContainer } from "react-router-bootstrap"
 
 function CheckoutScreen() {
   const { cartItems } = useSelector((state) => state.cart)
@@ -75,9 +75,11 @@ function CheckoutScreen() {
                   .toFixed(2)}
               </ListGroup.Item>
             </ListGroup>
-            <Button type="submit" variant="primary" block>
-              Back to cart
-            </Button>
+            <LinkContainer to="/cart">
+              <Button type="submit" variant="primary" block>
+                Back to cart
+              </Button>
+            </LinkContainer>
           </Card.Body>
         </Card>
       </Col>

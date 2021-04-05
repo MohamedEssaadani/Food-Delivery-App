@@ -63,7 +63,7 @@ function HomeView() {
         <Carousel.Item>
           <img
             className="d-block w-100 "
-            src="\images\slide3.jpg"
+            src="\images\la-nourriture-des-fast-food-modifie-nos-genes.jpg"
             alt="Third slide"
           />
 

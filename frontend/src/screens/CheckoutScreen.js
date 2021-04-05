@@ -1,12 +1,30 @@
-import React from "react"
-import { useSelector } from "react-redux"
+import React, { useState } from "react"
+import { useSelector, useDispatch } from "react-redux"
 import { Col, Row, Form, Card, Button, Image, ListGroup } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
+import { addOrder } from "../actions/orderActions"
 
 function CheckoutScreen() {
+  const dispatch = useDispatch()
+  const [address, setAddress] = useState("")
+  const [phone, setPhone] = useState("")
+  const [city, setCity] = useState("")
   const { cartItems } = useSelector((state) => state.cart)
+  const { userInfo } = useSelector((state) => state.userLogin)
 
-  const handleSubmit = () => {}
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const order = {
+      orderItems: [...cartItems],
+      shippingAdress: {
+        address,
+        city,
+      },
+      phoneNumber: phone,
+    }
+    // dispatch(addOrder(order))
+    console.table(order)
+  }
 
   return (
     <Row>
@@ -21,7 +39,18 @@ function CheckoutScreen() {
                 <Form.Label>Address</Form.Label>
                 <Form.Control
                   type="text"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                   placeholder="Enter your address"
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlId="city">
+                <Form.Label>City</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                  placeholder="Enter your city"
                 ></Form.Control>
               </Form.Group>
 
@@ -29,6 +58,8 @@ function CheckoutScreen() {
                 <Form.Label>Phone Number</Form.Label>
                 <Form.Control
                   type="text"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                   placeholder="Enter your phone number"
                 ></Form.Control>
               </Form.Group>

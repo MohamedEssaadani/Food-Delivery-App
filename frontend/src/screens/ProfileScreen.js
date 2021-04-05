@@ -4,6 +4,7 @@ import { Row, Col, Card, Form, Button } from "react-bootstrap"
 import { getUserDetails, updateUserProfile } from "../actions/userActions"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
+import UserOrders from "../components/UserOrders"
 
 function RegisterScreen({ history, location }) {
   const [name, setName] = useState("")
@@ -18,7 +19,7 @@ function RegisterScreen({ history, location }) {
 
   const { success } = useSelector((state) => state.userUpdateProfile)
 
-  //to check if the user is logged in or not
+  //to check if the us*er is logged in or not
   const { userInfo } = useSelector((state) => state.userLogin)
 
   useEffect(() => {
@@ -112,6 +113,7 @@ function RegisterScreen({ history, location }) {
       </Col>
       <Col md={8}>
         <h2>My Orders</h2>
+        <UserOrders />
       </Col>
     </Row>
   )

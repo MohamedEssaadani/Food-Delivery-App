@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Row, Col, Card, Form, Button } from "react-bootstrap"
+import { Row, Col, Card, Form, Button, Alert } from "react-bootstrap"
 import { getUserDetails, updateUserProfile } from "../actions/userActions"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
 import UserOrders from "../components/UserOrders"
 
-function RegisterScreen({ history, location }) {
+function RegisterScreen({ history }) {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

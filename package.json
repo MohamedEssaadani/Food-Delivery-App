@@ -1,13 +1,19 @@
 {
   "name": "fooddelivery",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.16.0"
+  },
   "type": "module",
   "description": "Food Delivery APP with ReactJs & NodeJs",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "supervisor backend/server.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend", 
+    "start": "node backend/server.js", 
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
+
   },
   "repository": {
     "type": "git",
@@ -24,4 +30,5 @@
     "mongoose": "^5.11.13",
     "supervisor": "^0.12.0"
   }
+  
 }

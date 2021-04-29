@@ -42,9 +42,9 @@ const createOrder = asyncHandler(async (req, res) => {
       totalPrice,
     })
 
-    const createdOrder = await order.save()
+    const createdOrder = await Order.create(order)
 
-    res.status(201).json(createOrder)
+    res.status(201).json(createdOrder)
   }
 })
 

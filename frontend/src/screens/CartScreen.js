@@ -57,7 +57,7 @@ function CartScreen({ match, location, history }) {
                   <Col md={2}>
                     <Form.Control
                       as="select"
-                      value={item.quantity}
+                      value={item.qty}
                       onChange={(e) =>
                         dispatch(addToCart(item.food, Number(e.target.value)))
                       }
@@ -89,12 +89,12 @@ function CartScreen({ match, location, history }) {
           <ListGroup>
             <ListGroup.Item>
               <h2>
-                Subtotal (
-                {cartItems.reduce((acc, item) => acc + item.quantity, 0)}) items
+                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+                items
               </h2>
               $
               {cartItems
-                .reduce((acc, item) => acc + item.quantity * item.price, 0)
+                .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}
             </ListGroup.Item>
             <ListGroup.Item>

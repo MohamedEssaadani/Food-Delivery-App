@@ -19,7 +19,7 @@ function CheckoutScreen({ history }) {
   const calculTotal = () => {
     let total = 0
     cartItems.forEach((item) => {
-      total = item.price * item.quantity
+      total = item.price * item.qty
     })
 
     return total
@@ -33,14 +33,21 @@ function CheckoutScreen({ history }) {
 
     const order = {
       orderItems: [...cartItems],
-      shippingAdress: {
-        address,
-        city,
+      shippingAddress: {
+        address: address,
+        city: city,
       },
       phoneNumber,
       totalPrice: calculTotal(),
     }
+    //dispatch create order action to create new order
     dispatch(createOrder(order))
+
+    //clear cart
+    localStorage.removeItem("cartItems")
+
+    //redirect the user to orders list
+    history.push("/profile")
   }
 
   return (
@@ -106,20 +113,18 @@ function CheckoutScreen({ history }) {
                         rounded
                       ></Image>
                     </Col>
-
-                    <Col md={6}>({item.quantity}) items</Col>
+                    <Col md={6}>({item.qty}) items</Col>
                   </Row>
                 </ListGroup.Item>
               ))}
               <ListGroup.Item>
                 <h6>
-                  Subtotal (
-                  {cartItems.reduce((acc, item) => acc + item.quantity, 0)})
-                  items
+                  Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                  ) items
                 </h6>
                 $
                 {cartItems
-                  .reduce((acc, item) => acc + item.quantity * item.price, 0)
+                  .reduce((acc, item) => acc + item.qty * item.price, 0)
                   .toFixed(2)}
               </ListGroup.Item>
             </ListGroup>

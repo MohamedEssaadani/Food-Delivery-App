@@ -2,28 +2,45 @@ import React, { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { Col, Row, Form, Card, Button, Image, ListGroup } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
-import { addOrder } from "../actions/orderActions"
+import { saveShippingAddress } from "../actions/cartActions"
+import { createOrder } from "../actions/orderActions"
 
-function CheckoutScreen() {
+function CheckoutScreen({ history }) {
   const dispatch = useDispatch()
-  const [address, setAddress] = useState("")
-  const [phone, setPhone] = useState("")
-  const [city, setCity] = useState("")
+
+  const { shippingAddress } = useSelector((state) => state.cart)
+
+  const [address, setAddress] = useState(shippingAddress.address)
+  const [phoneNumber, setPhoneNumber] = useState(shippingAddress.phoneNumber)
+  const [city, setCity] = useState(shippingAddress.city)
+
   const { cartItems } = useSelector((state) => state.cart)
-  const { userInfo } = useSelector((state) => state.userLogin)
+
+  const calculTotal = () => {
+    let total = 0
+    cartItems.forEach((item) => {
+      total = item.price * item.quantity
+    })
+
+    return total
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    //save shipping address
+    dispatch(saveShippingAddress({ address, city, phoneNumber }))
+
     const order = {
       orderItems: [...cartItems],
       shippingAdress: {
         address,
         city,
       },
-      phoneNumber: phone,
+      phoneNumber,
+      totalPrice: calculTotal(),
     }
-    // dispatch(addOrder(order))
-    console.table(order)
+    dispatch(createOrder(order))
   }
 
   return (
@@ -58,8 +75,8 @@ function CheckoutScreen() {
                 <Form.Label>Phone Number</Form.Label>
                 <Form.Control
                   type="text"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                   placeholder="Enter your phone number"
                 ></Form.Control>
               </Form.Group>

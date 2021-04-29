@@ -29,7 +29,7 @@ function App() {
           <Route path="/restaurant/:id/food" component={RestaurantFoodScreen} />
           <Route path="/foods/:id" component={FoodDetailsScreen} />
           <Route path="/cart/:id?" component={CartScreen} />
-          <Route path="/shipping" component={CheckoutScreen} />
+          <Route path="/checkout" component={CheckoutScreen} />
           <Route path="/" exact component={HomeScreen} />
         </Container>
       </main>

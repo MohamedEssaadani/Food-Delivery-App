@@ -26,7 +26,6 @@ const orderSchema = mongoose.Schema(
     },
     shippingPrice: {
       type: Number,
-      required: true,
       default: 0.0,
     },
     phoneNumber: {
@@ -40,7 +39,6 @@ const orderSchema = mongoose.Schema(
     },
     isDelivered: {
       type: Boolean,
-      required: true,
       default: false,
     },
     deliveredAt: {

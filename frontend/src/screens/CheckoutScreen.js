@@ -1,32 +1,29 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
-import {
-  Col,
-  Row,
-  Form,
-  Card,
-  Button,
-  Image,
-  ListGroup,
-  Alert,
-} from "react-bootstrap"
+import { Col, Row, Form, Card, Button, Image, ListGroup } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 import Message from "../components/Message"
 import Loader from "../components/Loader"
 import { saveShippingAddress } from "../actions/cartActions"
 import { createOrder } from "../actions/orderActions"
 
-function CheckoutScreen({ history }) {
+function CheckoutScreen() {
   const dispatch = useDispatch()
 
   const { shippingAddress } = useSelector((state) => state.cart)
-  const { loading, success, error } = useSelector((state) => state.createOrder)
+  const { loading, success, error, order } = useSelector(
+    (state) => state.createOrder
+  )
 
   const [address, setAddress] = useState(shippingAddress.address)
   const [phoneNumber, setPhoneNumber] = useState(shippingAddress.phoneNumber)
   const [city, setCity] = useState(shippingAddress.city)
 
   const { cartItems } = useSelector((state) => state.cart)
+
+  useEffect(() => {
+    if (success) console.log(order)
+  }, [success, order])
 
   const calculTotal = () => {
     let total = 0

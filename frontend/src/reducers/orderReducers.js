@@ -2,6 +2,9 @@ import {
   CREATE_ORDER_FAIL,
   CREATE_ORDER_REQUEST,
   CREATE_ORDER_SUCCESS,
+  ORDER_DETAIL_FAIL,
+  ORDER_DETAIL_REQUEST,
+  ORDER_DETAIL_SUCCESS,
 } from "../constants/orderConstants"
 
 export const createOrderReducer = (state = {}, action) => {
@@ -29,3 +32,28 @@ export const createOrderReducer = (state = {}, action) => {
     }
   }
 }
+
+// export const orderDetailReducer = (state = {}, action) => {
+//   switch (action.type) {
+//     case ORDER_DETAIL_REQUEST: {
+//       return {
+//         loading: true,
+//       }
+//     }
+//     case ORDER_DETAIL_SUCCESS: {
+//       return {
+//         loading: false,
+//         order: action.payload,
+//       }
+//     }
+//     case ORDER_DETAIL_FAIL: {
+//       return {
+//         loading: false,
+//         error: action.payload,
+//       }
+//     }
+//     default: {
+//       return state
+//     }
+//   }
+// }

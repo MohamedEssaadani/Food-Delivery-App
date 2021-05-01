@@ -28,9 +28,6 @@ function FoodDetailsScreen({ match, history }) {
         <Message variant="danger" text={error} />
       ) : (
         <>
-          <Link className="btn btn-dark my-3" to="/">
-            Back
-          </Link>
           <Row>
             <Col md={6}>
               <Image
@@ -39,6 +36,13 @@ function FoodDetailsScreen({ match, history }) {
                 fluid
                 rounded
               />
+              <br />
+              <Button
+                className="btn brn-dark  my-3"
+                onClick={() => history.goBack()}
+              >
+                Back
+              </Button>
             </Col>
             <Col md={3}>
               <ListGroup variant="flush">
@@ -60,7 +64,7 @@ function FoodDetailsScreen({ match, history }) {
               <Card>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
-                    <strong>Prix: </strong> {food.price}
+                    <strong>Prix: </strong> {food.price} DH
                   </ListGroup.Item>
                   {/* <ListGroup.Item>
                     <strong>Restaurant: </strong> {food.restaurant._id}

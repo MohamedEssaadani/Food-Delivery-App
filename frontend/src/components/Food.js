@@ -24,7 +24,7 @@ function Food({ food }) {
           </Link>
           <Rating value={food.rating} />
           <Card.Text>
-            <span> Prix: ${food.price}</span>
+            <span> Prix: {food.price} DH</span>
           </Card.Text>
         </Card.Body>
       </Card>

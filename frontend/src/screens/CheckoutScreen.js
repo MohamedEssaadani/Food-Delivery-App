@@ -7,7 +7,7 @@ import Loader from "../components/Loader"
 import { saveShippingAddress } from "../actions/cartActions"
 import { createOrder } from "../actions/orderActions"
 
-function CheckoutScreen() {
+function CheckoutScreen({ history }) {
   const dispatch = useDispatch()
 
   const { shippingAddress } = useSelector((state) => state.cart)
@@ -22,8 +22,10 @@ function CheckoutScreen() {
   const { cartItems } = useSelector((state) => state.cart)
 
   useEffect(() => {
-    if (success) console.log(order)
-  }, [success, order])
+    if (success) {
+      history.push(`/order/${order._id}`)
+    }
+  }, [success, order, history])
 
   const calculTotal = () => {
     let total = 0
@@ -61,9 +63,9 @@ function CheckoutScreen() {
       <Col md={8}>
         <Card className="p-3">
           {loading && <Loader />}
-          {success && (
+          {/* {success && (
             <Message variant="success" text="Your order created with success" />
-          )}
+          )} */}
           {error && <Message variant="danger" text={error} />}
           <Card.Title>
             <h3>Shipping details</h3>

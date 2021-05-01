@@ -8,7 +8,7 @@ import Rating from "../components/Rating"
 import Loader from "../components/Loader"
 import Message from "../components/Message"
 
-function RestaurantDetails({ match }) {
+function RestaurantDetails({ match, history }) {
   const dispatch = useDispatch()
   const { loading, error, restaurant } = useSelector(
     (state) => state.restaurantDetails
@@ -25,9 +25,6 @@ function RestaurantDetails({ match }) {
         <Message variant="danger" text={error} />
       ) : (
         <>
-          <Link className="btn btn-dark my-3" to="/">
-            Back
-          </Link>
           <Row>
             <Col md={6}>
               <Image
@@ -36,6 +33,13 @@ function RestaurantDetails({ match }) {
                 fluid
                 rounded
               />
+              <br />
+              <Button
+                className="btn brn-dark  my-3"
+                onClick={() => history.goBack()}
+              >
+                Back
+              </Button>
             </Col>
             <Col md={3}>
               <ListGroup variant="flush">

@@ -3,7 +3,7 @@ import Order from "../models/order.js"
 
 const getUserOrders = asyncHandler(async (req, res) => {
   if (req.user) {
-    const orders = await Order.find({ user: req.user.userId })
+    const orders = await Order.find({ user: req.user._id }).sort("-createdAt")
 
     if (orders) {
       res.json(orders)

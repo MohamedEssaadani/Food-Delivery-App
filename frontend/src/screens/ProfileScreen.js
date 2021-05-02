@@ -112,7 +112,6 @@ function RegisterScreen({ history }) {
         </Card>
       </Col>
       <Col md={8}>
-        <h2>My Orders</h2>
         <UserOrders />
       </Col>
     </Row>

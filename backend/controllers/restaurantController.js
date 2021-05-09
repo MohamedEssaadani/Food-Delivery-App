@@ -29,4 +29,5 @@ const getCities = asyncHandler(async (req, res) => {
   console.log(cities)
   res.json(cities)
 })
+
 export { getRestaurants, getRestaurantById, getCities }

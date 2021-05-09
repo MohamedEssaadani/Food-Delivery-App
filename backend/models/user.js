@@ -22,10 +22,9 @@ const userSchema = mongoose.Schema(
     address: {
       type: String,
     },
-    role: {
-      type: String,
-      required: true,
-      enum: ["admin", "client", "manager"],
+    isAdmin: {
+      type: Boolean,
+      default: false,
     },
   },
   {

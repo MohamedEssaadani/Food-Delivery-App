@@ -87,6 +87,38 @@ function Header({ history }) {
                   </Nav.Link>
                 </LinkContainer>
               )}
+              {userInfo && userInfo.isAdmin && (
+                <NavDropdown
+                  title={
+                    <>
+                      <i className="fas fa-user"> </i> {"Admin"}
+                    </>
+                  }
+                  id="adminMenu"
+                >
+                  {" "}
+                  <LinkContainer to="/admin/users">
+                    <NavDropdown.Item>
+                      <i className="fas fa-user" /> Users
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/admin/users">
+                    <NavDropdown.Item>
+                      <i className="fas fa-user" /> Restaurants
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/admin/users">
+                    <NavDropdown.Item>
+                      <i className="fas fa-user" /> Food
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/admin/users">
+                    <NavDropdown.Item>
+                      <i className="fas fa-user" /> Orders
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -1,7 +1,9 @@
 const foodList = [
   {
     name: "fried whole fish with tomatillo sauce",
-    restaurant: "6042768a1c5b2c00788a2351",
+    category: "6097c2ea54057e179091c9d3",
+
+    restaurant: "6097c2ea54057e179091c9cd",
     description:
       " Integer viverra lacus sit amet ex elementum, eget facilisis nulla sagittis. Nam commodo lacus sem. Vestibulum eleifend nunc sed molestie pharetra.",
     price: 22,
@@ -11,7 +13,8 @@ const foodList = [
   },
   {
     name: "Australis Barramundi Macadamia Crusted",
-    restaurant: "6042768a1c5b2c00788a2351",
+    restaurant: "6097c2ea54057e179091c9cd",
+    category: "6097c2ea54057e179091c9d3",
     description:
       " Integer viverra lacus sit amet ex elementum, eget facilisis nulla sagittis. Nam commodo lacus sem. Vestibulum eleifend nunc sed molestie pharetra.",
     price: 22,
@@ -21,7 +24,8 @@ const foodList = [
   },
   {
     name: "special",
-    restaurant: "6042768a1c5b2c00788a2351",
+    category: "6097c2ea54057e179091c9d3",
+    restaurant: "6097c2ea54057e179091c9cd",
     description:
       " Integer viverra lacus sit amet ex elementum, eget facilisis nulla sagittis. Nam commodo lacus sem. Vestibulum eleifend nunc sed molestie pharetra.",
     price: 22,

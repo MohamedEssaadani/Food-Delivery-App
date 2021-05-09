@@ -109,4 +109,12 @@ const createUser = asyncHandler(async (req, res) => {
   }
 })
 
-export { authUser, getUserProfile, createUser, updateUserProfile }
+//@desc GET Users
+//@route GET /api/users
+//@access Private
+const getUsers = asyncHandler(async (req, res) => {
+  const users = await User.find({})
+  res.json(users)
+})
+
+export { authUser, getUserProfile, createUser, updateUserProfile, getUsers }

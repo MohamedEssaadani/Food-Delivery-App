@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Container, Row, Col, Card, Form, Button, Table } from "react-bootstrap"
+import { Button, Table } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
-import Message from "../components/Message"
-import Loader from "../components/Loader"
-import { usersList } from "../actions/userActions"
+import Message from "../../components/Message"
+import Loader from "../../components/Loader"
+import { usersList } from "../../actions/userActions"
 
 function UsersListScreen() {
   const dispatch = useDispatch()

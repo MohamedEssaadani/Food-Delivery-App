@@ -104,17 +104,17 @@ function Header({ history }) {
                   </LinkContainer>
                   <LinkContainer to="/admin/restaurants">
                     <NavDropdown.Item>
-                      <i className="fas fa-user" /> Restaurants
+                      <i class="fas fa-utensils"></i> Restaurants
                     </NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to="/admin/users">
+                  <LinkContainer to="/admin/:restaurantId/food">
                     <NavDropdown.Item>
-                      <i className="fas fa-user" /> Food
+                      <i class="fas fa-hamburger"></i> Food
                     </NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to="/admin/users">
+                  <LinkContainer to="/admin/orders">
                     <NavDropdown.Item>
-                      <i className="fas fa-user" /> Orders
+                      <i className="fas fa-list" /> Orders
                     </NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>

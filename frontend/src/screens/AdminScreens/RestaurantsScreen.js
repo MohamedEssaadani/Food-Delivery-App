@@ -1,12 +1,14 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { Button, Image, Table } from "react-bootstrap"
 import { LinkContainer } from "react-router-bootstrap"
 import Message from "../../components/Message"
 import Loader from "../../components/Loader"
 import { listRestaurant } from "../../actions/restaurantActions"
+import CreateRestaurant from "./CreateRestaurant"
 
 function RestaurantsScreen() {
+  const [showCreateForm, setShowCreateForm] = useState(false)
   const dispatch = useDispatch()
 
   const { loading, restaurants, error } = useSelector(
@@ -18,9 +20,21 @@ function RestaurantsScreen() {
   }, [])
 
   const deleteHandler = () => {}
+
+  const handleCloseCreateForm = () => {
+    setShowCreateForm(false)
+  }
   return (
     <>
-      <h1>Restaurants</h1>
+      <h1 style={{ float: "left" }}>Restaurants</h1>
+      <h1 style={{ float: "right" }}>
+        <Button
+          className="btn btn-success"
+          onClick={() => setShowCreateForm(true)}
+        >
+          <i className="fas fa-plus"></i> New
+        </Button>
+      </h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -64,6 +78,7 @@ function RestaurantsScreen() {
                     <Button
                       variant="danger"
                       className="btn-sm"
+                      n
                       onClick={() => deleteHandler(res._id)}
                     >
                       <i className="fas fa-trash"></i>
@@ -75,6 +90,11 @@ function RestaurantsScreen() {
           </tbody>
         </Table>
       )}
+
+      <CreateRestaurant
+        showCreateForm={showCreateForm}
+        handleCloseCreateForm={handleCloseCreateForm}
+      />
     </>
   )
 }

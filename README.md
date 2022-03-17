@@ -1,0 +1,8 @@
+![login](login.png)
+![signup](signup.png)
+![home](home.png)
+![restaurantdetail](restaurantdetail.png)
+![restaurantfood](restaurantfood.png)
+![fooddetail](fooddetail.png)
+![cart](cart.png)
+![checkout](checkout.png)
